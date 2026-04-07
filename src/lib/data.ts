@@ -8,31 +8,17 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    id: "test-astronaut",
+    name: "Тестовый Астронавт",
+    price: 0,
+    glb: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+    usdz: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
+  },
+  {
     id: "my-model",
     name: "Моя Модель",
     price: 0,
     glb: "/partisan-ar/models/Untitled.glb",
     usdz: "/partisan-ar/models/Untitled.usdz",
-  },
-  {
-    id: "tiksha",
-    name: "Стул Тикша",
-    price: 45000,
-    glb: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-    usdz: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
-  },
-  {
-    id: "kasauri",
-    name: "Стол Касаури",
-    price: 120000,
-    glb: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-    usdz: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
-  },
-  {
-    id: "alva",
-    name: "Кресло Альва",
-    price: 85000,
-    glb: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-    usdz: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
   }
 ];
