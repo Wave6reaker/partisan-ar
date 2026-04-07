@@ -15,12 +15,18 @@ interface ARShowroomProps {
 export default function ARShowroom({ initialProduct, products }: ARShowroomProps) {
   const [activeProduct, setActiveProduct] = useState<Product>(initialProduct);
   const [isLoading, setIsLoading] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [arSupported, setArSupported] = useState(true);
   const modelViewerRef = useRef<any>(null);
 
   useEffect(() => {
     // Dynamically import the model-viewer script side-effect
-    import("@google/model-viewer").catch((err) =>
+    import("@google/model-viewer").then(() => {
+      // Check if AR is supported after module is loaded
+      if (modelViewerRef.current) {
+        const canActivateAR = modelViewerRef.current.canActivateAR;
+        setArSupported(!!canActivateAR);
+      }
+    }).catch((err) =>
       console.error("Failed to load model-viewer", err)
     );
   }, []);
@@ -90,21 +96,28 @@ export default function ARShowroom({ initialProduct, products }: ARShowroomProps
 
         {/* CENTER ACTION AREA */}
         <div className="flex flex-col items-center gap-8 animate-fade-in">
-          {!isLoading && (
+          {!isLoading && arSupported && (
             <button
               onClick={startAR}
               className="pointer-events-auto group relative flex items-center justify-center"
             >
-              {/* Pulsing ring */}
-              <div className="absolute inset-0 rounded-full bg-black/5 animate-ping group-hover:bg-black/10" />
-              
               {/* Main Button */}
               <div className="relative bg-black text-white px-10 py-5 rounded-full flex items-center gap-4 shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.4)] transition-all duration-500 hover:scale-105 active:scale-95 border border-white/10 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
-                <Camera className="w-6 h-6 animate-pulse" />
-                <span className="text-lg font-bold tracking-tight">Примерить 3D в дизайне</span>
+                <Camera className="w-6 h-6" />
+                <span className="text-lg font-bold tracking-tight">Примерить в AR / VR</span>
               </div>
             </button>
+          )}
+
+          {!arSupported && !isLoading && (
+            <div className="bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-red-100 flex flex-col items-center gap-2 pointer-events-auto shadow-lg">
+              <p className="text-xs font-bold text-red-500 uppercase tracking-widest text-center">
+                AR не поддерживается
+              </p>
+              <p className="text-[10px] text-black/40 text-center max-w-[200px]">
+                Попробуйте открыть сайт в Chrome или Safari.
+              </p>
+            </div>
           )}
 
           {/* Hint */}
