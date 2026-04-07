@@ -11,15 +11,15 @@ export const products: Product[] = [
     id: "my-model",
     name: "Моя Модель",
     price: 0,
-    glb: "/models/Untitled.glb",
-    usdz: "/models/Untitled.usdz",
+    glb: "/partisan-ar/models/Untitled.glb",
+    usdz: "/partisan-ar/models/Untitled.usdz",
   },
   {
     id: "tiksha",
     name: "Стул Тикша",
     price: 45000,
-    glb: "https://modelviewer.dev/shared-assets/models/Chair.glb",
-    usdz: "https://modelviewer.dev/shared-assets/models/Chair.usdz",
+    glb: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+    usdz: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
   },
   {
     id: "kasauri",
@@ -32,7 +32,7 @@ export const products: Product[] = [
     id: "alva",
     name: "Кресло Альва",
     price: 85000,
-    glb: "https://modelviewer.dev/shared-assets/models/Chair.glb",
-    usdz: "https://modelviewer.dev/shared-assets/models/Chair.usdz",
+    glb: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+    usdz: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
   }
 ];
