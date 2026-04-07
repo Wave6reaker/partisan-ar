@@ -1,8 +1,10 @@
+const path = require('path');
+
 const nextConfig = {
   output: 'export',
-  distDir: 'out',
-  // Принудительно указываем корень проекта, чтобы Next.js не искал lock-файлы выше по дереву
-  outputFileTracingRoot: __dirname,
+  distDir: 'deploy_dist', // Меняем имя на уникальное
+  // Жестко фиксируем корень проекта через абсолютный путь
+  outputFileTracingRoot: path.resolve(__dirname),
   images: {
     unoptimized: true,
   },
@@ -10,4 +12,4 @@ const nextConfig = {
   assetPrefix: '/partisan-ar/',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
