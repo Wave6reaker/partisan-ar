@@ -1,6 +1,8 @@
 const nextConfig = {
   output: 'export',
-  distDir: 'out', // Принудительно устанавливаем папку для статики
+  distDir: 'out',
+  // Принудительно указываем корень проекта, чтобы Next.js не искал lock-файлы выше по дереву
+  outputFileTracingRoot: __dirname,
   images: {
     unoptimized: true,
   },

@@ -75,7 +75,7 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Debug Output Dir
-        run: ls -R out/
+        run: find . -maxdepth 2 -not -path '*/.*'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
