@@ -1,13 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: 'export', // Включаем статический экспорт
+const nextConfig = {
+  output: 'export',
+  distDir: 'out', // Принудительно устанавливаем папку для статики
   images: {
-    unoptimized: true, // GitHub Pages не поддерживает стандартную оптимизацию изображений Next.js
+    unoptimized: true,
   },
-  // Устанавливаем имя вашего репозитория для корректной работы путей на GitHub Pages
-  basePath: '/partisan-ar', 
-  assetPrefix: '/partisan-ar/', // Дополнительно для корректной загрузки ассетов
+  basePath: '/partisan-ar',
+  assetPrefix: '/partisan-ar/',
 };
 
 export default nextConfig;
