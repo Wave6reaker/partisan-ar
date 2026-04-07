@@ -2,8 +2,7 @@ const path = require('path');
 
 const nextConfig = {
   output: 'export',
-  distDir: 'deploy_dist', // Меняем имя на уникальное
-  // Жестко фиксируем корень проекта через абсолютный путь
+  distDir: 'out', // Возвращаем стандартное имя
   outputFileTracingRoot: path.resolve(__dirname),
   images: {
     unoptimized: true,
